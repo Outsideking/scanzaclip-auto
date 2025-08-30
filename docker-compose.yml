@@ -1,0 +1,14 @@
+version: '3'
+services:
+  tpsclip_auto:
+    build: .
+    environment:
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - scanzaclip
+  scanzaclip:
+    image: scanzaclip_image  # image ของ scanzaclip
+    ports:
+      - "5000:5000"
